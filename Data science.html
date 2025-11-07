@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data science</title>
+<style>
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Poppins", sans-serif;
+  background: linear-gradient(135deg, #0b0c10, #1f2833);
+  color: #c5c6c7;
+  line-height: 1.6;
+}
+
+/* --- Navbar --- */
+.navbar {
+  width: 100%;
+  height: 70px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #0b0c10; /* solid dark base */
+  padding: 0 50px;
+  box-shadow: 0 0 20px rgba(102, 252, 241, 0.2);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.navlinks {
+  list-style: none;
+  display: flex;
+  gap: 25px;
+}
+
+.navlinks a {
+  text-decoration: none;
+  color: #c5c6c7;
+  font-size: 18px;
+  transition: 0.3s ease;
+}
+
+.navlinks a:hover {
+  color: #66fcf1;
+  text-shadow: 0 0 10px #66fcf1;
+}
+
+/* Right-side buttons */
+.btns {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.nav {
+  background-color: #45a29e;
+  border: none;
+  border-radius: 8px;
+  padding: 8px 16px;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.nav a {
+  text-decoration: none;
+  color: #0b0c10;
+  font-weight: bold;
+}
+
+.nav:hover {
+  background-color: #66fcf1;
+  box-shadow: 0 0 20px rgba(102, 252, 241, 0.6);
+}
+
+.nav:hover a {
+  color: #0b0c10;
+}
+
+/* --- Container (Hero Section) --- */
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  padding: 120px 10% 80px;
+  background: linear-gradient(135deg, #0b0c10, #1f2833);
+}
+
+.div1 {
+  flex: 1 1 400px;
+  text-align: left;
+  padding-right: 20px;
+}
+
+.div1 h1 {
+  color: #66fcf1;
+  font-size: 2.8rem;
+  text-shadow: 0 0 25px rgba(102, 252, 241, 0.3);
+}
+
+.div1 p {
+  color: #c5c6c7;
+  font-size: 1.1rem;
+  text-align: justify;
+}
+
+.div2 {
+  flex: 1 1 350px;
+  display: flex;
+  justify-content: center;
+}
+
+.div2 img {
+  max-width: 400px;
+  border-radius: 15px;
+  box-shadow: 0 0 40px rgba(102, 252, 241, 0.25);
+  transition: transform 0.3s ease;
+}
+
+.div2 img:hover {
+  transform: scale(1.05);
+}
+
+/* --- About Section --- */
+.about-section {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  padding: 80px 10%;
+  background: #1f2833;
+}
+
+.about-left {
+  flex: 1 1 400px;
+  padding: 20px;
+}
+
+.about-left h1 {
+  color: #66fcf1;
+  font-size: 2.5rem;
+  margin-bottom: 15px;
+  border-left: 4px solid #45a29e;
+  padding-left: 10px;
+}
+
+.about-left p {
+  font-size: 1.1rem;
+  color: #c5c6c7;
+  text-align: justify;
+}
+
+.about-right {
+  flex: 1 1 300px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+.about-right img {
+  width: 100%;
+  max-width: 320px;
+  border-radius: 50%;
+  border: 3px solid #66fcf1;
+  box-shadow: 0 0 25px rgba(102, 252, 241, 0.3);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.about-right img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 40px rgba(102, 252, 241, 0.5);
+}
+
+/* --- Services Section --- */
+.services-about {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  padding: 80px 10%;
+  background: linear-gradient(135deg, #0b0c10, #1f2833);
+  gap: 40px;
+}
+
+.services-left {
+  flex: 1 1 400px;
+  padding: 20px;
+}
+
+.services-left h1 {
+  font-size: 2.8rem;
+  color: #66fcf1;
+  border-left: 5px solid #45a29e;
+  padding-left: 10px;
+  margin-bottom: 20px;
+  text-shadow: 0 0 15px rgba(102, 252, 241, 0.4);
+}
+
+.services-left p {
+  font-size: 1.1rem;
+  color: #c5c6c7;
+  text-align: justify;
+  margin-bottom: 15px;
+}
+
+.services-left ul {
+  list-style: none;
+  padding: 0;
+  margin-top: 20px;
+}
+
+.services-left ul li {
+  margin-bottom: 10px;
+  font-size: 1.05rem;
+  position: relative;
+  padding-left: 25px;
+}
+
+.services-left ul li::before {
+  content: "▶";
+  position: absolute;
+  left: 0;
+  color: #66fcf1;
+  font-size: 0.9rem;
+}
+
+.services-right {
+  flex: 1 1 350px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.services-right img {
+  width: 100%;
+  max-width: 380px;
+  border-radius: 20px;
+  box-shadow: 0 0 40px rgba(102, 252, 241, 0.3);
+  border: 2px solid #66fcf1;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.services-right img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 60px rgba(102, 252, 241, 0.6);
+}
+
+/* --- Responsive --- */
+@media (max-width: 900px) {
+  .container,
+  .about-section,
+  .services-about {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .div1 h1 {
+    font-size: 2rem;
+  }
+
+  .div2 img {
+    max-width: 300px;
+  }
+
+  .about-left h1,
+  .services-left h1 {
+    border-left: none;
+    border-bottom: 3px solid #45a29e;
+    display: inline-block;
+    padding-bottom: 5px;
+  }
+
+  .services-right img {
+    max-width: 280px;
+    margin-bottom: 20px;
+  }
+}
+
+</style>
+</head>
+<body>
+    <nav class="navbar">
+        <img src="microsoft.png" alt="" style="width: 50px; height: 50px;">
+        <ul class="navlinks">
+         <li><a href="index.html">Home</a></li>
+       <li><a href="index3.html">AI</a></li>
+       <li><a href="Data science.html">Data Science</a></li>
+       <li><a href="Machine learning.html">Machine learning</a></li>
+       <li><a href="#About">About me</a></li>
+       <li><a href="#Services">Services</a></li>
+</ul>
+<div class="btn">
+    <button class="nav"><a href="signup.html">sign in</a></button>
+    <button class="nav"><a href="login.html">login</a></button>
+</div>
+    </nav>
+<div class="container">
+    <div class="div1">
+        <h1 style="text-align: center;color: red;">DATA SCIENCE</h1><hr>
+        <p style="color: green;">Data science is an interdisciplinary field that extracts knowledge and insights from data using scientific methods, algorithms, and systems, combining mathematics, statistics, and computer science. It uses these insights to solve problems and drive decision-making across various fields, from business and healthcare to sports and entertainment. The process involves collecting data, developing analytical models, and then using those models to uncover patterns, make predictions, and optimize actions.</p>
+    </div>
+<div class="div2">
+    <img src="Data science.png" alt="" style="height: 450px;width: 300px;">
+</div>
+
+
+</div>
+<section class="about-section" id="About">
+    <!-- Left Content -->
+    <div class="about-left">
+      <h1>About Me</h1>
+      <p>
+        Hello! I'm Harshita Vashisht, an AI and Data Science enthusiast passionate 
+        about building intelligent systems that learn, adapt, and make data-driven decisions. 
+        I specialize in Machine Learning, Deep Learning, and Data Analytics, transforming 
+        raw data into actionable insights. My goal is to contribute to projects that 
+        harness the power of AI to solve real-world challenges.
+      </p>
+      <p>
+        I enjoy working with Python, TensorFlow, and PyTorch — creating models that 
+        empower innovation. Outside of coding, I explore new research in neural networks 
+        and experiment with generative AI models.
+      </p>
+    </div>
+
+    <!-- Right Image -->
+    <div class="about-right">
+      <img src="" alt="">
+    </div>
+  </section>
+  <section class="services-about" id="Services">
+    <!-- Left Content -->
+    <div class="services-left">
+      <h1>Our AI Services</h1>
+      <p>
+        We provide cutting-edge Artificial Intelligence and Data Science solutions that empower
+        businesses to make smarter, data-driven decisions. Our goal is to transform complex
+        challenges into intelligent systems that learn, adapt, and deliver results.
+      </p>
+      <p>
+        From building predictive models to deploying automated AI solutions, we ensure
+        that innovation meets real-world impact.
+      </p>
+
+      <ul>
+        <li>Machine Learning Model Development</li>
+        <li>Data Analytics & Visualization</li>
+        <li>Natural Language Processing</li>
+        <li>AI-Powered Automation</li>
+        <li>Deep Learning & Neural Networks</li>
+      </ul>
+    </div>
+
+    <!-- Right Image -->
+    <div class="services-right">
+      <img src="" alt="">
+    </div>
+  </section>
+</body>
+</html>
